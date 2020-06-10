@@ -53,9 +53,12 @@ class MarketTest < Minitest::Test
   end
 
   def test_the_total_inventory
-    expected = {
-
-    }
+    # expected = {
+    #   @item1 => {quantity: 100, :vendors [@vendor1, @vendor3]},
+    #   @item2 => {quantity: 7, :vendors [@vendor1]},
+    #   @item3 => {quantity: 35, :vendors [@vendor2, @vendor3]},
+    #   @item4 => {quantity: 50, :vendors [@vendor2]}
+    # }
 
     @vendor1.stock(@item1, 35)
     @vendor1.stock(@item2, 7)
@@ -67,6 +70,7 @@ class MarketTest < Minitest::Test
     @market.add_vendor(@vendor2)
     @market.add_vendor(@vendor3)
 
-    assert_equal expected, @market.total_inventory
+    assert_equal ["Banana Nice Cream", "Peach", "Peach Raspberry Nice Cream", "Tomato"], @market.sorted_item_list
+    # assert_equal expected, @market.total_inventory
   end
 end
