@@ -71,6 +71,7 @@ class MarketTest < Minitest::Test
     @market.add_vendor(@vendor3)
 
     assert_equal ["Banana Nice Cream", "Peach", "Peach Raspberry Nice Cream", "Tomato"], @market.sorted_item_list
+    assert_equal [@item1], @market.oversocked_items
     # assert_equal expected, @market.total_inventory
   end
 end
